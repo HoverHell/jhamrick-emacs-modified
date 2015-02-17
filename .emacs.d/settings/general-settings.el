@@ -110,7 +110,7 @@
 (size-indication-mode 1)
 
 ; disable backup
-(setq backup-inhibited t)
+;(setq backup-inhibited t)
 ; disable auto save
 (setq auto-save-default nil)
 

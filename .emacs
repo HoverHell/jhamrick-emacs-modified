@@ -54,7 +54,13 @@
 (ido-mode 1)
 
 ;; MuMaMo
-(require 'mumamo-settings)
+
+;; XXX: nox fix.
+;(if (boundp 'image-types)
+;    nil
+;        (defvar image-types nil))
+
+;(require 'mumamo-settings)
 
 ;; Markdown mode
 (require 'markdown-settings)
@@ -69,13 +75,13 @@
 (require 'scss-settings)
 
 ;; Matlab mode
-(require 'matlab-settings)
+;; (require 'matlab-settings)
 
 ;; Javascript
 (require 'js-settings)
 
 ;; Nyancat mode!
-(nyan-mode 1)
+;; (nyan-mode 1)
 
 
 ;---------------------------------------------------------------------

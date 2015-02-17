@@ -63,17 +63,18 @@
 (require 'pydoc-info)
 
 ;; ; jedi python completion
-;; (include-elget-plugin "ctable")   ; required for epc
-;; (include-elget-plugin "deferred") ; required for epc
-;; (include-elget-plugin "epc")      ; required for jedi
-;; (include-elget-plugin "jedi")
-;; (require 'jedi)
-;; (setq jedi:setup-keys t)
-;; (autoload 'jedi:setup "jedi" nil t)
-;; (add-hook 'python-mode-hook 'jedi:setup)
+(include-elget-plugin "ctable")   ; required for epc
+(include-elget-plugin "deferred") ; required for epc
+(include-elget-plugin "epc")      ; required for jedi
+(include-elget-plugin "jedi")
+(require 'jedi)
+(setq jedi:setup-keys t)
+(autoload 'jedi:setup "jedi" nil t)
+(add-hook 'python-mode-hook 'jedi:setup)
 
 ;; pyflakes flymake integration
 ;; http://stackoverflow.com/a/1257306/347942
+
 (when (load "flymake" t)
   (defun flymake-pyflakes-init ()
     (let* ((temp-file (flymake-init-create-temp-buffer-copy
@@ -82,11 +83,13 @@
                         temp-file
                         (file-name-directory buffer-file-name))))
       (list "pycheckers" (list local-file))))
+      ;(list "pyflakes" (list local-file))))
   (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-pyflakes-init)))
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (unless (eq buffer-file-name nil) (flymake-mode 1))))
+
 
 ; Set PYTHONPATH, because we don't load .bashrc
 (defun set-python-path-from-shell-PYTHONPATH ()
@@ -108,4 +111,3 @@
   '(define-key python-mode-map (kbd "C-c |") 'python-shell-send-region))
 
 (provide 'python-settings)
-

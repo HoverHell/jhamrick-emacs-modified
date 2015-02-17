@@ -14,24 +14,39 @@
 
 ; packages to install
 (setq 
- my-packages '(auctex
+ my-packages '(
+               ;; auctex
                auto-complete
-               color-theme-solarized
+               ;; color-theme-solarized
                ein
                magit
                markdown-mode
-               matlab-mode
-               nxhtml
+               ;; matlab-mode
+               ;; nxhtml
                pydoc-info
                scss-mode
                popup
                jedi
-               nyan-mode
+               ;; nyan-mode
                helm
                helm-descbinds
                js2-mode
                yasnippet
-               ))   
+               ;;
+               flymake
+               ;; my1:
+               flymake-cursor
+               ; flymake-easy
+               ; flymake-pycheckers
+               ;; ... my2:
+               cython-mode
+               ;; some of these are unnecessary:
+               highlight-parentheses
+               mic-paren  ;; might have weird problems installing
+               ; rainbow-delimiters
+               ;; ...
+               undo-tree
+               ))
 
 ; first enable shallow clone, so we don't need to clone the entire
 ; history of every project
